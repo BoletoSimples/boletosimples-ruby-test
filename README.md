@@ -4,24 +4,24 @@ Esse é um código de exemplo de uso da [Biblioteca Ruby do Boleto Simples](http
 
 ## Usando
 
-* Baixe o código
+Baixe o código
 
     $ git clone https://github.com/BoletoSimples/boletosimples-ruby-test
     $ cd boletosimples-ruby-test
 
-* Instale as dependências usando o [Bundler](http://bundler.io/)
+Instale as dependências usando o [Bundler](http://bundler.io/)
 
     $ bundle install
 
-* Crie uma conta no ambiente de Sandbox do Boleto Simples acessando [https://sandbox.boletosimples.com.br/users/sign_up](https://sandbox.boletosimples.com.br/users/sign_up)
+Crie uma conta no ambiente de Sandbox do Boleto Simples acessando [https://sandbox.boletosimples.com.br/users/sign_up](https://sandbox.boletosimples.com.br/users/sign_up)
 
-* Configure o seu acess token, disponível em [https://sandbox.boletosimples.com.br/conta/api/tokens](https://sandbox.boletosimples.com.br/conta/api/tokens)
+Configure o seu acess token, disponível em [https://sandbox.boletosimples.com.br/conta/api/tokens](https://sandbox.boletosimples.com.br/conta/api/tokens)
 
     $ export BOLETOSIMPLES_ACCESS_TOKEN=99999
 
-* Edite o arquivo `index.rb` e descomente o código que você deseja testar;
+Edite o arquivo `index.rb` e descomente o código que você deseja testar;
 
-* Rode o código
+Rode o código
 
     $ ruby index.rb
 
