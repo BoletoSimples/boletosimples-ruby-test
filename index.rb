@@ -92,7 +92,78 @@ require 'dalli'
 # puts "Status Final: #{@bank_billet.status}"
 
 #############################################################################
+# Customer.create (error)
+#############################################################################
+
+# @customer = BoletoSimples::Customer.create({person_name: 'Joao Da Silva'})
+# if @customer.persisted?
+#   puts "Sucesso :)"
+#   ap @customer.attributes
+# else
+#   puts "Erro :("
+#   ap @customer.response_errors
+# end
+
+#############################################################################
+# Customer.create (success)
+#############################################################################
+
+# @customer = BoletoSimples::Customer.create({
+#   person_name: "Joao da Silva",
+#   cnpj_cpf: "782.661.177-64",
+#   email: "cliente@bom.com",
+#   address: "Rua quinhentos",
+#   city_name: "Rio de Janeiro",
+#   state: "RJ",
+#   neighborhood: "bairro",
+#   zipcode: "12312-123",
+#   address_number: "111",
+#   address_complement: "Sala 4",
+#   phone_number: "2112123434"
+# })
+# if @customer.persisted?
+#   puts "Sucesso :)"
+#   ap @customer.attributes
+# else
+#   puts "Erro :("
+#   ap @customer.response_errors
+# end
+
+#############################################################################
+# Customer.find
+#############################################################################
+
+# customer_id = 67
+# @customer = BoletoSimples::Customer.find(customer_id)
+# ap @customer.attributes
+
+#############################################################################
+# Customer.all
+#############################################################################
+
+# @customers = BoletoSimples::Customer.all(page: 1, per_page: 2)
+# puts "Clientes Retornados: #{@customers.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# Transaction.all
+#############################################################################
+
+# @transactions = BoletoSimples::Transaction.all(page: 1, per_page: 2)
+# puts "Transações Retornadas: #{@transactions.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
 # Extra.userinfo
 #############################################################################
 
-# ap BoletoSimples::Extra.userinfo
+@userinfo = BoletoSimples::Extra.userinfo
+ap @userinfo
