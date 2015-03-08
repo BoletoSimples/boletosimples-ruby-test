@@ -9,9 +9,8 @@ Esse é um código de exemplo de uso da [Biblioteca Ruby do Boleto Simples](http
     $ git clone https://github.com/BoletoSimples/boletosimples-ruby-test
     $ cd boletosimples-ruby-test
 
-* Instale as dependências
+* Instale as dependências usando o [Bundler](http://bundler.io/)
 
-    $ gem install bundler
     $ bundle install
 
 * Crie uma conta no ambiente de Sandbox do Boleto Simples acessando [https://sandbox.boletosimples.com.br/users/sign_up](https://sandbox.boletosimples.com.br/users/sign_up)
