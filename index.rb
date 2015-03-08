@@ -165,5 +165,5 @@ require 'dalli'
 # Extra.userinfo
 #############################################################################
 
-@userinfo = BoletoSimples::Extra.userinfo
-ap @userinfo
+# @userinfo = BoletoSimples::Extra.userinfo
+# ap @userinfo
