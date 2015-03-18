@@ -138,6 +138,39 @@ require 'dalli'
 # ap @customer.attributes
 
 #############################################################################
+# Customer.update (error)
+#############################################################################
+
+# customer_id = 56
+# @customer = BoletoSimples::Customer.find(customer_id)
+# puts "Nome antigo: #{@customer.person_name}"
+# @customer.person_name = ""
+# if @customer.save
+#   puts "Sucesso :)"
+#   puts "Novo nome: #{@customer.person_name}"
+# else
+#   puts "Erro :("
+#   puts @customer.response_errors
+# end
+
+#############################################################################
+# Customer.update (success)
+#############################################################################
+
+# customer_id = 56
+# @customer = BoletoSimples::Customer.find(customer_id)
+# puts "Nome antigo: #{@customer.person_name}"
+# @customer.person_name = "Nome #{rand(999)}"
+# if @customer.save
+#   puts "Sucesso :)"
+#   puts "Novo nome: #{@customer.person_name}"
+# else
+#   puts "Erro :("
+#   puts @customer.response_errors
+# end
+
+
+#############################################################################
 # Customer.all
 #############################################################################
 
