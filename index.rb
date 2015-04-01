@@ -225,7 +225,7 @@ require 'dalli'
 #   agency_digit: '3',
 #   account_number: '3666',
 #   account_digit: '8',
-#   extra1_length: '1234567'
+#   extra1: '1234567'
 # })
 # if @bank_billet_account.persisted?
 #   puts "Sucesso :)"
