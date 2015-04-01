@@ -200,3 +200,89 @@ require 'dalli'
 
 # @userinfo = BoletoSimples::Extra.userinfo
 # ap @userinfo
+
+#############################################################################
+# BankBilletAccount.create (error)
+#############################################################################
+
+# @bank_billet_account = BoletoSimples::BankBilletAccount.create({bank_contract_slug: 'sicoob-02'})
+# if @bank_billet_account.persisted?
+#   puts "Sucesso :)"
+#   ap @bank_billet_account.attributes
+# else
+#   puts "Erro :("
+#   ap @bank_billet_account.response_errors
+# end
+
+#############################################################################
+# BankBilletAccount.create (success)
+#############################################################################
+
+# @bank_billet_account = BoletoSimples::BankBilletAccount.create({
+#   bank_contract_slug: 'sicoob-02',
+#   next_our_number: '1',
+#   agency_number: '4327',
+#   agency_digit: '3',
+#   account_number: '3666',
+#   account_digit: '8',
+#   extra1_length: '1234567'
+# })
+# if @bank_billet_account.persisted?
+#   puts "Sucesso :)"
+#   ap @bank_billet_account.attributes
+# else
+#   puts "Erro :("
+#   ap @bank_billet_account.response_errors
+# end
+
+#############################################################################
+# BankBilletAccount.find
+#############################################################################
+
+# bank_billet_account_id = 3
+# @bank_billet_account = BoletoSimples::BankBilletAccount.find(bank_billet_account_id)
+# ap @bank_billet_account.attributes
+
+#############################################################################
+# bank_billet_account.update (error)
+#############################################################################
+
+# bank_billet_account_id = 3
+# @bank_billet_account = BoletoSimples::BankBilletAccount.find(bank_billet_account_id)
+# puts "Agência: #{@bank_billet_account.agency_number}"
+# @bank_billet_account.agency_number = ""
+# if @bank_billet_account.save
+#   puts "Sucesso :)"
+#   puts "Nova agência: #{@bank_billet_account.agency_number}"
+# else
+#   puts "Erro :("
+#   ap @bank_billet_account.response_errors
+# end
+
+#############################################################################
+# bank_billet_account.update (success)
+#############################################################################
+
+# bank_billet_account_id = 3
+# @bank_billet_account = BoletoSimples::BankBilletAccount.find(bank_billet_account_id)
+# puts "Agência: #{@bank_billet_account.agency_number}"
+# @bank_billet_account.agency_number = "4842"
+# if @bank_billet_account.save
+#   puts "Sucesso :)"
+#   puts "Nova agência: #{@bank_billet_account.agency_number}"
+# else
+#   puts "Erro :("
+#   ap @bank_billet_account.response_errors
+# end
+
+#############################################################################
+# BankBilletAccount.all
+#############################################################################
+#
+# @bank_billet_accounts = BoletoSimples::BankBilletAccount.all(page: 1, per_page: 2)
+# puts "Carteiras Retornadas: #{@bank_billet_accounts.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
