@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.2'
 
 gem 'pry', '0.9.12.4'
 gem 'awesome_print', '1.2.0'
