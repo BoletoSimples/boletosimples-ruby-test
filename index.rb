@@ -46,7 +46,8 @@ require 'dalli'
 #   customer_person_type: 'individual',
 #   customer_phone_number: '2112123434',
 #   customer_state: 'RJ',
-#   customer_zipcode: '12312-123'
+#   customer_zipcode: '12312-123',
+#   bank_billet_account_id: 12 #quando usar carteira própria
 # })
 # if @bank_billet.persisted?
 #   puts "Sucesso :)"
@@ -286,3 +287,26 @@ require 'dalli'
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
 # puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# BankBilletAccount.destroy_existing
+#############################################################################
+
+# bank_billet_account_id = 4
+# @bank_billet_account = BoletoSimples::BankBilletAccount.destroy_existing(bank_billet_account_id)
+# ap @bank_billet_account.attributes
+
+#############################################################################
+# Partner::User.create
+###########################################################################
+
+# @user = BoletoSimples::Partner::User.create(email: 'customer@example.com')
+# if @user.persisted?
+#   puts "Sucesso :)"
+#   ap @user.attributes
+# else
+#   puts "Erro :("
+#   ap @user.response_errors
+# end
+
+# "Sucesso :)"
