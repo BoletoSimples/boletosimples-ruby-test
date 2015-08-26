@@ -15,6 +15,18 @@ require 'dalli'
 # end
 
 #############################################################################
+# BoletoSimples.configuration.client_credentials
+#############################################################################
+
+# BoletoSimples.configure do |c|
+#   c.environment = :sandbox
+#   c.application_id = 'client_id'
+#   c.application_secret = 'secret_id'
+# end
+#
+# ap BoletoSimples.configuration.client_credentials
+
+#############################################################################
 # BankBillet.create (error)
 #############################################################################
 
@@ -297,7 +309,20 @@ require 'dalli'
 # ap @bank_billet_account.attributes
 
 #############################################################################
-# Partner::User.create
+# Partner::User.create (error)
+###########################################################################
+
+# @user = BoletoSimples::Partner::User.create
+# if @user.persisted?
+#   puts "Sucesso :)"
+#   ap @user.attributes
+# else
+#   puts "Erro :("
+#   ap @user.response_errors
+# end
+
+#############################################################################
+# Partner::User.create (success)
 ###########################################################################
 
 # @user = BoletoSimples::Partner::User.create(email: 'customer@example.com')
@@ -309,4 +334,89 @@ require 'dalli'
 #   ap @user.response_errors
 # end
 
-# "Sucesso :)"
+#############################################################################
+# BoletoSimples::Webhook.all
+#############################################################################
+
+# @webhook = BoletoSimples::Webhook.all(page: 1, per_page: 2)
+# puts "Hooks Retornados: #{@webhook.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# BoletoSimples::WebhookDelivery.all
+#############################################################################
+
+# @webhook_delivery = BoletoSimples::WebhookDelivery.all(page: 1, per_page: 2)
+# puts "Hooks logs Retornados: #{@webhook_delivery.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# BoletoSimples::Event.all
+#############################################################################
+
+# @event = BoletoSimples::Event.all(page: 1, per_page: 2)
+# puts "Eventos Retornados: #{@event.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# BoletoSimples::Discharge.all
+#############################################################################
+
+# @discharge = BoletoSimples::Discharge.all(page: 1, per_page: 2)
+# puts "Retornos Retornados: #{@discharge.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# BoletoSimples::Remittance.create (error)
+#############################################################################
+#
+# @remittance = BoletoSimples::Remittance.create
+# if @remittance.persisted?
+#   puts "Sucesso :)"
+#   ap @remittance.attributes
+# else
+#   puts "Erro :("
+#   ap @remittance.response_errors
+# end
+
+#############################################################################
+# BoletoSimples::Remittance.create (success)
+###########################################################################
+
+# @remittance = BoletoSimples::Remittance.create(bank_billet_account_id: 18)
+# if @remittance.persisted?
+#   puts "Sucesso :)"
+#   ap @remittance.attributes
+# else
+#   puts "Erro :("
+#   ap @remittance.response_errors
+# end
+
+
+#############################################################################
+# BoletoSimples::Discharge.all
+#############################################################################
+
+# @discharge = BoletoSimples::Discharge.all(page: 1, per_page: 2)
+# puts "Retornos Retornados: #{@discharge.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
