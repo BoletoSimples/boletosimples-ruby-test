@@ -11,7 +11,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     awesome_print (1.6.1)
-    boletosimples (0.3.0)
+    boletosimples (0.3.1)
       faraday-http-cache (~> 1.2.0)
       faraday_middleware (~> 0.10.0)
       her (~> 0.7.5)
@@ -49,7 +49,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print (= 1.6.1)
-  boletosimples (= 0.3.0)
+  boletosimples (= 0.3.1)
   dalli (= 2.7.4)
   pry (= 0.10.1)
 
