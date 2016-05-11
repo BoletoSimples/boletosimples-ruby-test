@@ -9,10 +9,11 @@ require 'dalli'
 # BoletoSimples.configure
 #############################################################################
 
-# BoletoSimples.configure do |c|
-#   c.environment = :sandbox
-#   c.cache = ActiveSupport::Cache.lookup_store(:dalli_store, ['localhost:11211'], namespace: 'boletosimples_client', compress: true)
-# end
+BoletoSimples.configure do |c|
+  # c.environment = :sandbox
+  # c.access_token = 'pegar token na sua conta'
+  # c.cache = ActiveSupport::Cache.lookup_store(:dalli_store, ['localhost:11211'], namespace: 'boletosimples_client', compress: true)
+end
 
 #############################################################################
 # BoletoSimples.configuration.client_credentials
@@ -44,9 +45,9 @@ require 'dalli'
 #############################################################################
 
 # @bank_billet = BoletoSimples::BankBillet.create({
-#   amount: 9.01,
+#   amount: 8.4,
 #   description: 'Despesas do contrato 0012',
-#   expire_at: '2014-01-01',
+#   expire_at: '2016-04-05',
 #   customer_address: 'Rua quinhentos',
 #   customer_address_complement: 'Sala 4',
 #   customer_address_number: '111',
@@ -59,7 +60,9 @@ require 'dalli'
 #   customer_phone_number: '2112123434',
 #   customer_state: 'RJ',
 #   customer_zipcode: '12312-123',
-#   bank_billet_account_id: 12 #quando usar carteira própria
+#   meta: "{\"reference_id\": \"code123\"}"
+#
+#   # bank_billet_account_id: 12 #quando usar carteira própria
 # })
 # if @bank_billet.persisted?
 #   puts "Sucesso :)"
@@ -238,7 +241,8 @@ require 'dalli'
 #   agency_digit: '3',
 #   account_number: '3666',
 #   account_digit: '8',
-#   extra1: '1234567'
+#   extra1: '1234567',
+#   extra3: '99999999999999'
 # })
 # if @bank_billet_account.persisted?
 #   puts "Sucesso :)"
@@ -408,15 +412,39 @@ require 'dalli'
 #   ap @remittance.response_errors
 # end
 
+#############################################################################
+# BoletoSimples::Remittance.all
+#############################################################################
+
+# @remittances = BoletoSimples::Remittance.all(page: 1, per_page: 2)
+# puts "Retornos Retornados: #{@remittances.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BoletoSimples::Discharge.all
 #############################################################################
 
-# @discharge = BoletoSimples::Discharge.all(page: 1, per_page: 2)
+# @discharges = BoletoSimples::Discharge.all(page: 1, per_page: 2)
 # puts "Retornos Retornados: #{@discharge.count}"
 # puts "Total: #{BoletoSimples.last_request.total}"
 # puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
 # puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# BoletoSimples::Remittance.find
+# #############################################################################
+# @remittance = BoletoSimples::Remittance.find(1)
+# ap @remittance.attributes
+
+#############################################################################
+# BoletoSimples::Discharge.find
+# #############################################################################
+# @discharge = BoletoSimples::Discharge.find(1)
+# ap @discharge.attributes
+
