@@ -448,3 +448,102 @@ end
 # @discharge = BoletoSimples::Discharge.find(1)
 # ap @discharge.attributes
 
+#############################################################################
+# CustomerSubscription.create (error)
+#############################################################################
+
+# @customer_subscription = BoletoSimples::CustomerSubscription.create({customer_id: '00'})
+# if @customer_subscription.persisted?
+#   puts "Sucesso :)"
+#   ap @customer_subscription.attributes
+# else
+#   puts "Erro :("
+#   ap @customer_subscription.response_errors
+# end
+
+#############################################################################
+# CustomerSubscription.create (success)
+#############################################################################
+
+# @customer_subscription = BoletoSimples::CustomerSubscription.create({
+#   customer_id: "11",
+#   amount: "1.120,4",
+#   cycle: "monthly",
+#   description: "Hospedagem"
+# })
+# if @customer_subscription.persisted?
+#   puts "Sucesso :)"
+#   ap @customer_subscription.attributes
+# else
+#   puts "Erro :("
+#   ap @customer_subscription.response_errors
+# end
+
+#############################################################################
+# CustomerSubscription.find
+#############################################################################
+
+# customer_subscription_id = 487
+# @customer_subscription = BoletoSimples::CustomerSubscription.find(customer_subscription_id)
+# ap @customer_subscription.attributes
+
+#############################################################################
+# CustomerSubscription.update (error)
+#############################################################################
+
+# customer_subscription_id = 487
+# @customer_subscription = BoletoSimples::CustomerSubscription.find(customer_subscription_id)
+# puts "Valor antigo: #{@customer_subscription.amount}"
+# @customer_subscription.amount = ""
+# if @customer_subscription.save
+#   puts "Sucesso :)"
+#   puts "Novo Valor: #{@customer_subscription.amount}"
+# else
+#   puts "Erro :("
+#   puts @customer_subscription.response_errors
+# end
+
+#############################################################################
+# CustomerSubscription.update (success)
+#############################################################################
+#
+# customer_subscription_id = 487
+# @customer_subscription = BoletoSimples::CustomerSubscription.find(customer_subscription_id)
+# puts "Valor antigo: #{@customer_subscription.amount}"
+# @customer_subscription.amount = "149,67"
+# @customer_subscription.fine_for_delay = "1,67"
+# @customer_subscription.late_payment_interest = "1,37"
+# if @customer_subscription.save
+#   puts "Sucesso :)"
+#   puts "Novo Valor: #{@customer_subscription.amount}"
+# else
+#   puts "Erro :("
+#   puts @customer_subscription.response_errors
+# end
+
+#############################################################################
+# CustomerSubscription.next_charge
+#############################################################################
+
+# customer_subscription_id = 487
+# @customer_subscription = BoletoSimples::CustomerSubscription.find(customer_subscription_id)
+# puts "Próxima cobrança Anterior: #{@customer_subscription.next_billing}"
+# if @customer_subscription.next_charge
+#   puts "novo boleto gerado :)"
+# else
+#   puts "Erro :)"
+#   puts @customer_subscription.response_errors
+# end
+# puts "Próxima cobrança Final: #{@customer_subscription.next_billing}"
+
+#############################################################################
+# CustomerSubscription.all
+#############################################################################
+
+# @customer_subscriptions = BoletoSimples::CustomerSubscription.all(page: 1, per_page: 2)
+# puts "Assinaturas Retornados: #{@customer_subscriptions.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
