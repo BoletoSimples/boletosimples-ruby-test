@@ -47,12 +47,12 @@ end
 # @bank_billet = BoletoSimples::BankBillet.create({
 #   amount: 8.4,
 #   description: 'Despesas do contrato 0012',
-#   expire_at: '2016-04-05',
+#   expire_at: '2020-04-05',
 #   customer_address: 'Rua quinhentos',
 #   customer_address_complement: 'Sala 4',
 #   customer_address_number: '111',
 #   customer_city_name: 'Rio de Janeiro',
-#   customer_cnpj_cpf: '012.345.678-90',
+#   customer_cnpj_cpf: '247.524.507-71',
 #   customer_email: 'cliente@example.com',
 #   customer_neighborhood: 'Sao Francisco',
 #   customer_person_name: 'Joao da Silva',
@@ -60,8 +60,9 @@ end
 #   customer_phone_number: '2112123434',
 #   customer_state: 'RJ',
 #   customer_zipcode: '12312-123',
-#   meta: "{\"reference_id\": \"code123\"}"
-#
+#   meta: "{\"reference_id\": \"code123\"}",
+#   fine_for_delay: "1,67",
+#   late_payment_interest: "1,37",
 #   # bank_billet_account_id: 12 #quando usar carteira própria
 # })
 # if @bank_billet.persisted?
@@ -466,10 +467,12 @@ end
 #############################################################################
 
 # @customer_subscription = BoletoSimples::CustomerSubscription.create({
-#   customer_id: "11",
+#   customer_id: "7997",
 #   amount: "1.120,4",
 #   cycle: "monthly",
-#   description: "Hospedagem"
+#   description: "Hospedagem",
+#   fine_for_delay: "1,67",
+#   late_payment_interest: "1,37",
 # })
 # if @customer_subscription.persisted?
 #   puts "Sucesso :)"
@@ -525,7 +528,7 @@ end
 # CustomerSubscription.next_charge
 #############################################################################
 
-# customer_subscription_id = 487
+# customer_subscription_id = 506
 # @customer_subscription = BoletoSimples::CustomerSubscription.find(customer_subscription_id)
 # puts "Próxima cobrança Anterior: #{@customer_subscription.next_billing}"
 # if @customer_subscription.next_charge
@@ -542,6 +545,61 @@ end
 
 # @customer_subscriptions = BoletoSimples::CustomerSubscription.all(page: 1, per_page: 2)
 # puts "Assinaturas Retornados: #{@customer_subscriptions.count}"
+# puts "Total: #{BoletoSimples.last_request.total}"
+# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
+
+#############################################################################
+# Installment.create (error)
+#############################################################################
+
+# @installment = BoletoSimples::Installment.create({customer_id: '00'})
+# if @installment.persisted?
+#   puts "Sucesso :)"
+#   ap @installment.attributes
+# else
+#   puts "Erro :("
+#   ap @installment.response_errors
+# end
+
+#############################################################################
+# Installment.create (success)
+#############################################################################
+#
+# @installment = BoletoSimples::Installment.create({
+#   customer_id: "7997",
+#   amount: "1.120,4",
+#   cycle: "monthly",
+#   description: "Hospedagem",
+#   fine_for_delay: "1.67",
+#   late_payment_interest: "1.37",
+#   total: 3,
+#   start_at: Date.current
+# })
+# if @installment.persisted?
+#   puts "Sucesso :)"
+#   ap @installment.attributes
+# else
+#   puts "Erro :("
+#   ap @installment.response_errors
+# end
+
+#############################################################################
+# Installment.find
+#############################################################################
+
+# installment_id = 411
+# @installment = BoletoSimples::Installment.find(installment_id)
+# ap @installment.attributes
+
+#############################################################################
+# Installment.all
+#############################################################################
+
+# @installments = BoletoSimples::Installment.all(page: 1, per_page: 2)
+# puts "Carnes Retornados: #{@installments.count}"
 # puts "Total: #{BoletoSimples.last_request.total}"
 # puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
