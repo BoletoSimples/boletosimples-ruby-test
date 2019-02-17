@@ -87,11 +87,8 @@ end
 
 # @bank_billets = BoletoSimples::BankBillet.all(page: 1, per_page: 2)
 # puts "Boletos Retornados: #{@bank_billets.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BankBillet.cancel
@@ -193,11 +190,8 @@ end
 
 # @customers = BoletoSimples::Customer.all(page: 1, per_page: 2)
 # puts "Clientes Retornados: #{@customers.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # Transaction.all
@@ -205,11 +199,8 @@ end
 
 # @transactions = BoletoSimples::Transaction.all(page: 1, per_page: 2)
 # puts "Transações Retornadas: #{@transactions.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # Extra.userinfo
@@ -299,11 +290,8 @@ end
 #
 # @bank_billet_accounts = BoletoSimples::BankBilletAccount.all(page: 1, per_page: 2)
 # puts "Carteiras Retornadas: #{@bank_billet_accounts.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BankBilletAccount.destroy_existing
@@ -345,11 +333,8 @@ end
 
 # @webhook = BoletoSimples::Webhook.all(page: 1, per_page: 2)
 # puts "Hooks Retornados: #{@webhook.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BoletoSimples::WebhookDelivery.all
@@ -357,11 +342,8 @@ end
 
 # @webhook_delivery = BoletoSimples::WebhookDelivery.all(page: 1, per_page: 2)
 # puts "Hooks logs Retornados: #{@webhook_delivery.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BoletoSimples::Event.all
@@ -369,11 +351,8 @@ end
 
 # @event = BoletoSimples::Event.all(page: 1, per_page: 2)
 # puts "Eventos Retornados: #{@event.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BoletoSimples::Discharge.all
@@ -381,11 +360,8 @@ end
 
 # @discharge = BoletoSimples::Discharge.all(page: 1, per_page: 2)
 # puts "Retornos Retornados: #{@discharge.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BoletoSimples::Remittance.create (error)
@@ -419,11 +395,8 @@ end
 
 # @remittances = BoletoSimples::Remittance.all(page: 1, per_page: 2)
 # puts "Retornos Retornados: #{@remittances.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BoletoSimples::Discharge.all
@@ -431,11 +404,8 @@ end
 
 # @discharges = BoletoSimples::Discharge.all(page: 1, per_page: 2)
 # puts "Retornos Retornados: #{@discharge.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # BoletoSimples::Remittance.find
@@ -545,11 +515,8 @@ end
 
 # @customer_subscriptions = BoletoSimples::CustomerSubscription.all(page: 1, per_page: 2)
 # puts "Assinaturas Retornados: #{@customer_subscriptions.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
 
 #############################################################################
 # Installment.create (error)
@@ -600,8 +567,5 @@ end
 
 # @installments = BoletoSimples::Installment.all(page: 1, per_page: 2)
 # puts "Carnes Retornados: #{@installments.count}"
-# puts "Total: #{BoletoSimples.last_request.total}"
-# puts "Primeira Página: #{BoletoSimples.last_request.links[:first]}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
-# puts "Última Página: #{BoletoSimples.last_request.links[:last]}"
