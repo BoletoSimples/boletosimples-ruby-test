@@ -61,8 +61,10 @@ end
 #   customer_state: 'RJ',
 #   customer_zipcode: '12312-123',
 #   meta: "{\"reference_id\": \"code123\"}",
-#   fine_for_delay: "1,67",
-#   late_payment_interest: "1,37",
+#   fine_type: '1',
+#   fine_percentage: 1.67,
+#   interest_type: '1',
+#   interest_percentage: 1.37
 #   # bank_billet_account_id: 12 #quando usar carteira própria
 # })
 # if @bank_billet.persisted?
@@ -441,8 +443,10 @@ end
 #   amount: "1.120,4",
 #   cycle: "monthly",
 #   description: "Hospedagem",
-#   fine_for_delay: "1,67",
-#   late_payment_interest: "1,37",
+#   fine_type: '1',
+#   fine_percentage: 1.67,
+#   interest_type: '1',
+#   interest_percentage: 1.37
 # })
 # if @customer_subscription.persisted?
 #   puts "Sucesso :)"
@@ -484,8 +488,8 @@ end
 # @customer_subscription = BoletoSimples::CustomerSubscription.find(customer_subscription_id)
 # puts "Valor antigo: #{@customer_subscription.amount}"
 # @customer_subscription.amount = "149,67"
-# @customer_subscription.fine_for_delay = "1,67"
-# @customer_subscription.late_payment_interest = "1,37"
+# @customer_subscription.fine_percentage = "1,67"
+# @customer_subscription.interest_percentage = "1,37"
 # if @customer_subscription.save
 #   puts "Sucesso :)"
 #   puts "Novo Valor: #{@customer_subscription.amount}"
@@ -540,8 +544,10 @@ end
 #   amount: "1.120,4",
 #   cycle: "monthly",
 #   description: "Hospedagem",
-#   fine_for_delay: "1.67",
-#   late_payment_interest: "1.37",
+#   fine_type: '1',
+#   fine_percentage: 1.67,
+#   interest_type: '1',
+#   interest_percentage: 1.37
 #   total: 3,
 #   start_at: Date.current
 # })
@@ -569,3 +575,13 @@ end
 # puts "Carnes Retornados: #{@installments.count}"
 # puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
 # puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+
+#############################################################################
+# EmailDelivery.all
+#############################################################################
+
+# @deliveries = BoletoSimples::EmailDelivery.all(page: 1, per_page: 2)
+# puts "Email enviados Retornados: #{@deliveries.count}"
+# puts "Página Anterior: #{BoletoSimples.last_request.links[:prev]}"
+# puts "Próxima Página: #{BoletoSimples.last_request.links[:next]}"
+#
