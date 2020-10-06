@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler/setup'
 require 'boletosimples'
@@ -45,9 +47,9 @@ end
 #############################################################################
 
 # @bank_billet = BoletoSimples::BankBillet.create({
-#   amount: 8.4,
+#   amount: 800.4,
 #   description: 'Despesas do contrato 0012',
-#   expire_at: '2020-04-05',
+#   expire_at: '2022-12-31',
 #   customer_address: 'Rua quinhentos',
 #   customer_address_complement: 'Sala 4',
 #   customer_address_number: '111',
@@ -64,8 +66,29 @@ end
 #   fine_type: '1',
 #   fine_percentage: 1.67,
 #   interest_type: '1',
-#   interest_percentage: 1.37
-#   # bank_billet_account_id: 12 #quando usar carteira própria
+#   interest_percentage: 1.37,
+#   days_for_discount: 2,
+#   split_accounts: [
+#     {
+#       bank_number: '246',
+#       account_number: '1234',
+#       account_digit: '5',
+#       agency_number: '0001',
+#       cnpj_cpf: '39988107226',
+#       name: 'José da Silva',
+#       amount: '23,45'
+#     },
+#       {
+#         bank_number: '246',
+#         account_number: '123468',
+#         account_digit: '5',
+#         agency_number: '0001',
+#         cnpj_cpf: '39988107226',
+#         name: 'Jhon da Silva',
+#         amount: '2,45'
+#       }
+#     ],
+#   # bank_billet_account_id: 61 #quando usar carteira específica
 # })
 # if @bank_billet.persisted?
 #   puts "Sucesso :)"
@@ -97,15 +120,32 @@ end
 #############################################################################
 
 # bank_billet_id = 1
-# @bank_billet = BoletoSimples::BankBillet.find(bank_billet_id)
-# puts "Status Anterior: #{@bank_billet.status}"
-# if @bank_billet.cancel
+# @bank_billet = BoletoSimples::BankBillet.cancel(id: bank_billet_id)
+# if @bank_billet.response_errors.nil?
 #   puts "Cancelado :)"
 # else
 #   puts "Erro :)"
 #   puts @bank_billet.response_errors
 # end
 # puts "Status Final: #{@bank_billet.status}"
+
+#############################################################################
+# BankBillet.pay
+#############################################################################
+
+# @bank_billet = BoletoSimples::BankBillet.pay(id: 345_048,
+#                                              paid_at: '2020-09-06',
+#                                              paid_amount: 1345.56,
+#                                              bank_rate: 1.34,
+#                                              direct_payment: true)
+# ap @bank_billet
+# if @bank_billet.persisted?
+#   puts 'Pago :)'
+#   ap @bank_billet.attributes
+# else
+#   puts 'Erro :)'
+#   puts @bank_billet.response_errors
+# end
 
 #############################################################################
 # Customer.create (error)
@@ -184,7 +224,6 @@ end
 #   puts "Erro :("
 #   puts @customer.response_errors
 # end
-
 
 #############################################################################
 # Customer.all
@@ -503,9 +542,9 @@ end
 #############################################################################
 
 # customer_subscription_id = 506
-# @customer_subscription = BoletoSimples::CustomerSubscription.find(customer_subscription_id)
+# @customer_subscription = BoletoSimples::CustomerSubscription.next_charge(id: customer_subscription_id)
 # puts "Próxima cobrança Anterior: #{@customer_subscription.next_billing}"
-# if @customer_subscription.next_charge
+# if @customer_subscription.response_errors.nil?
 #   puts "novo boleto gerado :)"
 # else
 #   puts "Erro :)"
