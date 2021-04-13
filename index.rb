@@ -12,22 +12,11 @@ require 'dalli'
 #############################################################################
 
 BoletoSimples.configure do |c|
-  # c.environment = :sandbox
-  # c.access_token = 'pegar token na sua conta'
+  c.environment = :sandbox
+  c.user_agent = 'colocar um e-mail válido'
+  c.api_token = 'pegar token na sua conta'
   # c.cache = ActiveSupport::Cache.lookup_store(:dalli_store, ['localhost:11211'], namespace: 'boletosimples_client', compress: true)
 end
-
-#############################################################################
-# BoletoSimples.configuration.client_credentials
-#############################################################################
-
-# BoletoSimples.configure do |c|
-#   c.environment = :sandbox
-#   c.application_id = 'client_id'
-#   c.application_secret = 'secret_id'
-# end
-#
-# ap BoletoSimples.configuration.client_credentials
 
 #############################################################################
 # BankBillet.create (error)
@@ -46,7 +35,7 @@ end
 # BankBillet.create (success)
 #############################################################################
 
-# @bank_billet = BoletoSimples::BankBillet.create({
+# @bank_billet = BoletoSimples::BankBillet.create(
 #   amount: 800.4,
 #   description: 'Despesas do contrato 0012',
 #   expire_at: '2022-12-31',
@@ -78,23 +67,23 @@ end
 #       name: 'José da Silva',
 #       amount: '23,45'
 #     },
-#       {
-#         bank_number: '246',
-#         account_number: '123468',
-#         account_digit: '5',
-#         agency_number: '0001',
-#         cnpj_cpf: '39988107226',
-#         name: 'Jhon da Silva',
-#         amount: '2,45'
-#       }
-#     ],
-#   # bank_billet_account_id: 61 #quando usar carteira específica
-# })
+#     {
+#       bank_number: '246',
+#       account_number: '123468',
+#       account_digit: '5',
+#       agency_number: '0001',
+#       cnpj_cpf: '39988107226',
+#       name: 'Jhon da Silva',
+#       amount: '2,45'
+#     }
+#   ],
+#   bank_billet_account_id: 61 # quando usar carteira específica
+# )
 # if @bank_billet.persisted?
-#   puts "Sucesso :)"
+#   puts 'Sucesso :)'
 #   ap @bank_billet.attributes
 # else
-#   puts "Erro :("
+#   puts 'Erro :('
 #   ap @bank_billet.response_errors
 # end
 
@@ -164,24 +153,24 @@ end
 # Customer.create (success)
 #############################################################################
 
-# @customer = BoletoSimples::Customer.create({
-#   person_name: "Joao da Silva",
-#   cnpj_cpf: "782.661.177-64",
-#   email: "cliente@bom.com",
-#   address: "Rua quinhentos",
-#   city_name: "Rio de Janeiro",
-#   state: "RJ",
-#   neighborhood: "bairro",
-#   zipcode: "12312-123",
-#   address_number: "111",
-#   address_complement: "Sala 4",
-#   phone_number: "2112123434"
-# })
+# @customer = BoletoSimples::Customer.create(
+#   person_name: 'Joao da Silva',
+#   cnpj_cpf: '782.661.177-64',
+#   email: 'cliente@bom.com',
+#   address: 'Rua quinhentos',
+#   city_name: 'Rio de Janeiro',
+#   state: 'RJ',
+#   neighborhood: 'bairro',
+#   zipcode: '12312-123',
+#   address_number: '111',
+#   address_complement: 'Sala 4',
+#   phone_number: '2112123434'
+# )
 # if @customer.persisted?
-#   puts "Sucesso :)"
+#   puts 'Sucesso :)'
 #   ap @customer.attributes
 # else
-#   puts "Erro :("
+#   puts 'Erro :('
 #   ap @customer.response_errors
 # end
 
