@@ -16,18 +16,19 @@ BoletoSimples.configure do |c|
   c.user_agent = 'colocar um e-mail válido'
   c.api_token = 'pegar token na sua conta'
   # c.cache = ActiveSupport::Cache.lookup_store(:dalli_store, ['localhost:11211'], namespace: 'boletosimples_client', compress: true)
+  # c.debug = true
 end
 
 #############################################################################
 # BankBillet.create (error)
 #############################################################################
 
-# @bank_billet = BoletoSimples::BankBillet.create({amount: 9.1})
+# @bank_billet = BoletoSimples::BankBillet.create(amount: 9.1)
 # if @bank_billet.persisted?
-#   puts "Sucesso :)"
+#   puts 'Sucesso :)'
 #   ap @bank_billet.attributes
 # else
-#   puts "Erro :("
+#   puts 'Erro :('
 #   ap @bank_billet.response_errors
 # end
 
