@@ -1,6 +1,6 @@
-# Exemplo de Uso - Boleto Simples Ruby
+# Exemplo de Uso - Kobana Ruby
 
-Esse é um código de exemplo de uso da [Biblioteca Ruby do Boleto Simples](https://github.com/BoletoSimples/boletosimples-ruby).
+Esse é um código de exemplo de uso da [Biblioteca Ruby do Kobana](https://github.com/BoletoSimples/boletosimples-ruby).
 
 ## Usando
 
@@ -13,17 +13,21 @@ Instale as dependências usando o [Bundler](http://bundler.io/)
 
     $ bundle install
 
-Crie uma conta no ambiente de Sandbox do Boleto Simples acessando [https://sandbox.boletosimples.com.br/users/sign_up](https://sandbox.boletosimples.com.br/users/sign_up)
+Crie uma conta no ambiente de Sandbox do Kobana acessando [https://app-sandbox.kobana.com.br/users/sign_up](https://app-sandbox.kobana.com.br/users/sign_up)
 
-Configure o seu acess token, disponível em [https://sandbox.boletosimples.com.br/conta/api/tokens](https://sandbox.boletosimples.com.br/conta/api/tokens)
+Configure o seu acess token, disponível em [https://app-sandbox.kobana.com.br/conta/api/tokens](https://app-sandbox.kobana.com.br/conta/api/tokens)
 
-    $ export BOLETOSIMPLES_ACCESS_TOKEN=99999
+Edite o arquivo `index.rb` na linha 14 onde está o bloco `BoletoSimples.configure` e inclua as informações obrigatórias para user_agent e api_token.
 
-Edite o arquivo `index.rb` e descomente o código que você deseja testar;
+Configure o ambiente(`environment`) desejado, lembrando que cada ambiente tem seu próprio api_token.
 
-Rode o código
+Descomente o exemplo que deseja ser executado.
 
+Rode o código:
+
+```
     $ ruby index.rb
+```
 
 ## Licença
 
@@ -35,8 +39,14 @@ Comentários são bem-vindos. Envie seu feedback através do [issue tracker do G
 
 ## Autor
 
-[**Rafael Lima**](http://github.com/rafaelp) trabalhando no [Boleto Simples](http://boletosimples.com.br)
+[**Rafael Lima**](http://github.com/rafaelp) trabalhando no [Kobana](https://kobana.com.br)
+
+[**Kivanio Barbosa**](http://github.com/rafaelp) trabalhando no [Kobana](https://kobana.com.br)
 
 Blog: [http://rafael.adm.br](http://rafael.adm.br)
 
-Twitter: [http://twitter.com/rafaelp](http://twitter.com/rafaelp)
+Twitter:
+
+[http://twitter.com/rafaelp](http://twitter.com/rafaelp)
+
+[http://twitter.com/kivanio](http://twitter.com/kivanio)
